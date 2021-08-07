@@ -6,10 +6,12 @@ import {
   Dimensions,
   StyleSheet,
   StatusBar,
+  ScrollView,
 } from 'react-native';
 import ImgBanner from './source/images/awan.jpg';
 import OvoComponent from './source/component/OvoComponent';
 import FiturUtama from './source/component/FiturUtama';
+import PromoItems from './source/component/PromoItems';
 const {height, width} = Dimensions.get('window');
 const styles = StyleSheet.create({
   imageBanner: {
@@ -43,11 +45,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#adadad',
     marginTop: 10,
   },
+  divider: {
+    width: width,
+    height: 15,
+    backgroundColor: '#ededed',
+    marginVertical: 15,
+  },
 });
 class Home extends React.Component {
   render() {
     return (
-      <View>
+      <ScrollView>
         <StatusBar
           barStyle="dark-content"
           backgroundColor="rgba(0,0,0,0)"
@@ -70,7 +78,9 @@ class Home extends React.Component {
         <View style={{marginHorizontal: 18}}>
           <FiturUtama />
         </View>
-      </View>
+        <View style={styles.divider}></View>
+        <PromoItems />
+      </ScrollView>
     );
   }
 }
